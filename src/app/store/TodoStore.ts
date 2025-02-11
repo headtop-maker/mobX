@@ -43,7 +43,9 @@ class TickersStore {
       }
     } catch (error) {
       console.log('error', error);
-      this.errorMessage = error.message;
+      runInAction(() => {
+        this.errorMessage = error.message;
+      });
     }
   }
 }
