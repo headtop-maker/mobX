@@ -10,6 +10,5 @@ export const sortTickers = (currentTickers: TradeData[]) => {
     columnValue.unshift(key);
     arrays.push(columnValue);
   }
-  console.log('arrays', arrays);
   return arrays;
 };
