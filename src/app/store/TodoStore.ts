@@ -1,4 +1,4 @@
-import {action, observable, makeObservable} from 'mobx';
+import {runInAction, observable, makeObservable} from 'mobx';
 import {getCurrentTickers} from '../../shared/api/axiosInstance';
 import {TradeData} from '../../shared/types';
 import {sortTickers} from '../../lib/sortTickers';
@@ -19,16 +19,7 @@ class TickersStore {
       tickers: observable,
       column: observable,
       errorMessage: observable,
-      setTickers: action,
     });
-  }
-
-  setTickers(currentTickers: TradeData[]) {
-    this.tickers = currentTickers;
-  }
-
-  setColumn(currentTickers: TradeData[]) {
-    this.tickers = currentTickers;
   }
 
   startPolling() {
@@ -45,8 +36,10 @@ class TickersStore {
     try {
       const {data} = await getCurrentTickers();
       if (data.data) {
-        this.errorMessage = '';
-        this.column = sortTickers(data.data);
+        runInAction(() => {
+          this.errorMessage = '';
+          this.column = sortTickers(data.data);
+        });
       }
     } catch (error) {
       console.log('error', error);
