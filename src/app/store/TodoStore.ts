@@ -8,7 +8,7 @@ export type TTodos = {
   completed: boolean;
 }[];
 
-class TodoStore {
+class TickersStore {
   tickers: TradeData[] = [];
   column: string[][] = [];
   intervalId: NodeJS.Timeout | null = null;
@@ -55,5 +55,5 @@ class TodoStore {
   }
 }
 
-const store = new TodoStore();
+const store = new TickersStore();
 export default store;

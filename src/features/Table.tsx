@@ -6,7 +6,7 @@ import AnimateText from '../entities/AnimateText';
 
 const Table = observer(() => {
   return (
-    <ScrollView horizontal>
+    <ScrollView horizontal style={styles.container}>
       {store.column &&
         store.column.map((column, index) => (
           <View key={'column' + index} style={styles.table}>
@@ -20,6 +20,7 @@ const Table = observer(() => {
 });
 
 const styles = StyleSheet.create({
+  container: {padding: 10},
   table: {flexDirection: 'column', borderWidth: 1},
 });
 
