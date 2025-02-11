@@ -3,8 +3,9 @@ import React from 'react';
 import HomeScreen from '../../shared/screens/HomeScreen';
 import TicketsScreen from '../../shared/screens/TicketsScreen';
 import {View} from 'react-native';
+import {RootStackParamList} from './RootStack';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 const TabsStack = () => {
   return (

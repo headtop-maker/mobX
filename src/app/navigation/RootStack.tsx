@@ -6,7 +6,7 @@ import {
 
 import TabsStack from './TabsStack';
 
-type RootStackParamList = {
+export type RootStackParamList = {
   HomeScreen: undefined;
   TicketsScreen: undefined;
   TabsStack: undefined;
